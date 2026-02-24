@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,6 +36,7 @@ align-items:center;
 padding:15px 40px;
 box-shadow:0 2px 10px rgba(0,0,0,0.08);
 z-index:1000;
+flex-wrap:wrap;
 }
 
 nav h2{
@@ -54,23 +56,26 @@ color:#e48aa6;
 
 /* ---------- HERO ---------- */
 .hero{
-height:90vh;
+min-height:90vh;
 background:url("https://images.unsplash.com/photo-1559620192-032c4bc4674e") center/cover no-repeat;
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
 color:white;
+padding:40px 20px;
 }
 
 .hero-content{
 background:rgba(0,0,0,0.45);
 padding:40px;
 border-radius:12px;
+max-width:600px;
+width:100%;
 }
 
 .hero h1{
-font-size:48px;
+font-size:clamp(28px,6vw,48px);
 margin-bottom:10px;
 }
 
@@ -78,6 +83,7 @@ margin-bottom:10px;
 margin-bottom:20px;
 }
 
+/* BUTTONS */
 .btn{
 padding:12px 22px;
 border:none;
@@ -86,6 +92,8 @@ border-radius:30px;
 cursor:pointer;
 font-weight:600;
 transition:.3s;
+display:inline-block;
+text-decoration:none;
 }
 
 .whatsapp{background:#25D366;color:white;}
@@ -188,6 +196,75 @@ border-radius:50%;
 font-size:22px;
 text-decoration:none;
 box-shadow:0 4px 10px rgba(0,0,0,0.3);
+z-index:999;
+}
+
+/* ============================= */
+/* MOBILE RESPONSIVE DESIGN */
+/* ============================= */
+
+@media (max-width:768px){
+
+nav{
+flex-direction:column;
+padding:15px 20px;
+text-align:center;
+}
+
+nav div{
+margin-top:10px;
+}
+
+nav a{
+margin:8px;
+display:inline-block;
+}
+
+.hero{
+min-height:auto;
+padding:80px 15px;
+}
+
+.hero-content{
+padding:25px 15px;
+}
+
+.hero p{
+font-size:14px;
+}
+
+/* STACK BUTTONS */
+.btn{
+display:block;
+width:100%;
+margin:10px 0;
+}
+
+section{
+padding:50px 6%;
+}
+
+/* SINGLE COLUMN LAYOUT */
+.gallery{
+grid-template-columns:1fr;
+}
+
+.cards{
+grid-template-columns:1fr;
+}
+
+.cta{
+padding:40px 20px;
+}
+
+/* SMALLER FLOAT BUTTON */
+.float{
+bottom:15px;
+right:15px;
+padding:12px 15px;
+font-size:18px;
+}
+
 }
 
 </style>
@@ -298,3 +375,4 @@ src="https://maps.google.com/maps?q=cherur%20thrissur&t=&z=13&ie=UTF8&iwloc=&out
 
 </body>
 </html>
+```
