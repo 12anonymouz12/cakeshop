@@ -1,282 +1,443 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cake Factory | Thrissur</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>cakefactory | Premium Cakes in Thrissur</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif;}
+body{background:#fff8fb;color:#333;scroll-behavior:smooth;}
+a{text-decoration:none}
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-scroll-behavior:smooth;
-}
-
-body{
-background:linear-gradient(135deg,#fff7f9,#fff3e6);
-color:#333;
-}
-
-/* NAVBAR */
+/* ================= NAV ================= */
 nav{
-position:sticky;
+position:fixed;
 top:0;
+width:100%;
+background:rgba(255,255,255,0.95);
+backdrop-filter:blur(12px);
+padding:15px 20px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:18px 8%;
-background:white;
-box-shadow:0 5px 20px rgba(0,0,0,0.08);
+box-shadow:0 6px 20px rgba(0,0,0,0.05);
 z-index:1000;
 }
 
-nav h2{
-color:#a10050;
+.logo{
+font-size:20px;
 font-weight:700;
+color:#c2185b;
 }
 
-nav a{
-text-decoration:none;
-margin-left:25px;
+.nav-links{
+display:flex;
+gap:25px;
+margin-left:auto;   /* pushes links to right */
+}
+
+.nav-links a{
+font-size:14px;
 color:#444;
 font-weight:500;
+position:relative;
+}
+
+.nav-links a::after{
+content:'';
+position:absolute;
+bottom:-4px;
+left:0;
+width:0;
+height:2px;
+background:#c2185b;
 transition:.3s;
 }
 
-nav a:hover{
-color:#a10050;
+.nav-links a:hover{
+color:#c2185b;
 }
 
-/* HERO */
-.hero{
-height:90vh;
-background:url("https://images.unsplash.com/photo-1559620192-032c4bc4674e") center/cover no-repeat;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-color:white;
-position:relative;
-}
-
-.hero::after{
-content:"";
-position:absolute;
-top:0;
-left:0;
+.nav-links a:hover::after{
 width:100%;
-height:100%;
-background:rgba(161,0,80,0.65);
 }
 
-.hero-content{
-position:relative;
-z-index:2;
+/* Mobile Fix - Keep in single row */
+@media(max-width:600px){
+nav{
+flex-direction:row;
+padding:12px 15px;
+}
+
+.logo{
+font-size:18px;
+}
+
+.nav-links{
+gap:15px;
+}
+
+.nav-links a{
+font-size:13px;
+}
+}
+/* ================= HERO ================= */
+.hero{
+height:100vh;
+background:
+linear-gradient(rgba(194,24,91,0.75),rgba(255,128,171,0.75)),
+url('https://images.unsplash.com/photo-1578985545062-69928b1d9587');
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+color:white;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
 }
 
 .hero h1{
-font-size:48px;
-font-weight:700;
-margin-bottom:10px;
-}
-
-.hero p{
-margin-bottom:20px;
-}
-
-.btn{
-padding:12px 25px;
-border-radius:30px;
-border:none;
-font-weight:600;
-cursor:pointer;
-transition:.3s;
-margin:5px;
-}
-
-.primary{
-background:#ff4d94;
-color:white;
-}
-
-.primary:hover{
-background:#e60073;
-transform:scale(1.05);
-}
-
-/* SECTION */
-section{
-padding:80px 8%;
-text-align:center;
-}
-
-.section-title{
-font-size:32px;
-margin-bottom:40px;
-color:#a10050;
-}
-
-/* MENU GRID */
-.menu-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-gap:25px;
-}
-
-.cake-card{
-background:rgba(255,255,255,0.7);
-backdrop-filter:blur(10px);
-border-radius:18px;
-padding:20px;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
-transition:.4s;
-}
-
-.cake-card:hover{
-transform:translateY(-10px);
-box-shadow:0 15px 35px rgba(0,0,0,0.15);
-}
-
-.cake-card img{
-width:100%;
-height:180px;
-object-fit:cover;
-border-radius:12px;
+font-size:30px;
 margin-bottom:15px;
 }
 
-.cake-card h3{
-margin-bottom:5px;
-color:#333;
+.hero p{
+margin-bottom:25px;
+font-size:15px;
 }
 
-.price{
-color:#a10050;
-font-weight:600;
-margin-bottom:12px;
+.hero-buttons{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+justify-content:center;
 }
 
-.order-btn{
-background:#25D366;
-color:white;
-padding:10px 18px;
-border:none;
+.hero-btn,
+.hero-whatsapp{
+padding:10px 22px;
 border-radius:25px;
-cursor:pointer;
 font-weight:600;
+font-size:14px;
 transition:.3s;
 }
 
-.order-btn:hover{
-background:#1ebc59;
+.hero-btn{
+background:white;
+color:#c2185b;
+}
+
+.hero-whatsapp{
+background:linear-gradient(135deg,#25D366,#128C7E);
+color:white;
+}
+
+.hero-btn:hover,
+.hero-whatsapp:hover{
 transform:scale(1.05);
 }
 
-/* CTA */
-.cta{
-background:#a10050;
-color:white;
-padding:60px;
-margin-top:60px;
+/* ================= ABOUT ================= */
+.about{
+padding:80px 20px;
+text-align:center;
+background:white;
 }
 
+.about h2{
+color:#c2185b;
+margin-bottom:20px;
+font-size:22px;
+}
+
+.about p{
+max-width:600px;
+margin:auto;
+line-height:1.7;
+color:#555;
+font-size:14px;
+}
+
+/* ================= INFO ================= */
+.info{
+background:white;
+margin:20px;
+padding:18px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.05);
+text-align:center;
+font-size:14px;
+}
+
+/* ================= SECTION TITLE ================= */
+.section-title{
+text-align:center;
+margin:70px 0 25px;
+font-size:22px;
+font-weight:700;
+color:#c2185b;
+position:relative;
+}
+
+.section-title::after{
+content:'';
+display:block;
+width:50px;
+height:3px;
+background:linear-gradient(90deg,#ff4081,#ffd54f);
+margin:8px auto 0;
+border-radius:10px;
+}
+
+/* ================= MENU ================= */
+.menu{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+padding:0 15px 60px;
+}
+
+.card{
+background:white;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 8px 25px rgba(0,0,0,0.05);
+transition:.4s;
+opacity:0;
+transform:translateY(40px);
+}
+
+.card.show{
+opacity:1;
+transform:translateY(0);
+}
+
+.card img{
+width:100%;
+height:150px;
+object-fit:cover;
+}
+
+.card-body{
+padding:12px;
+}
+
+.card h3{
+font-size:14px;
+margin-bottom:6px;
+}
+
+.price{
+color:#c2185b;
+font-weight:600;
+margin-bottom:8px;
+font-size:14px;
+}
+
+/* Smaller WhatsApp Button */
+.order{
+display:inline-block;
+padding:6px 14px;
+font-size:12px;
+border:none;
+border-radius:18px;
+background:linear-gradient(135deg,#25D366,#128C7E);
+color:white;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+}
+
+.order:hover{
+transform:scale(1.05);
+}
+
+/* ================= MAP ================= */
+.map{
+margin:20px;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* ================= FLOAT ================= */
+.float{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:14px;
+border-radius:50%;
+font-size:18px;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* ================= FOOTER ================= */
 footer{
 background:#2b0020;
 color:white;
-padding:25px;
 text-align:center;
-margin-top:40px;
+padding:20px;
+font-size:12px;
 }
 
+/* ================= POPUP ================= */
+.popup{
+position:fixed;
+top:0;left:0;width:100%;height:100%;
+background:rgba(0,0,0,0.6);
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:2000;
+}
+
+.popup-box{
+background:linear-gradient(135deg,#ff4081,#ff80ab,#ffd54f);
+padding:30px;
+border-radius:25px;
+text-align:center;
+width:85%;
+max-width:320px;
+color:white;
+animation:pop .5s ease;
+}
+
+.popup-box button{
+margin-top:12px;
+padding:8px 18px;
+border:none;
+background:white;
+color:#c2185b;
+font-weight:700;
+border-radius:20px;
+cursor:pointer;
+}
+
+@keyframes pop{
+0%{transform:scale(.7);opacity:0}
+100%{transform:scale(1);opacity:1}
+}
 </style>
 </head>
 
 <body>
 
+<!-- OFFER POPUP -->
+<div class="popup" id="offer">
+<div class="popup-box">
+<div style="font-size:45px">🎂</div>
+<h2>BUY 1 GET 1 FREE</h2>
+<p>+ 45% OFF on Single Cakes</p>
+<button onclick="document.getElementById('offer').style.display='none'">
+Grab Offer
+</button>
+</div>
+</div>
+
 <nav>
-<h2>Cake Factory</h2>
-<div>
+<h2 class="logo">cakefactory</h2>
+<div class="nav-links">
 <a href="#menu">Menu</a>
-<a href="#contact">Contact</a>
+<a href="#about">About Me</a>
 </div>
 </nav>
 
 <section class="hero">
-<div class="hero-content">
-<h1>Fresh Cakes Delivered Across Thrissur</h1>
-<p>Add Sweetness to Your Celebrations</p>
-<a href="#menu"><button class="btn primary">View Menu</button></a>
+<h1>Premium Cakes Delivered in Thrissur</h1>
+<p>Freshly baked. Beautifully crafted. Made with love.</p>
+<div class="hero-buttons">
+<a href="#menu" class="hero-btn">View Menu</a>
+<a href="https://wa.me/919847472277" class="hero-whatsapp">Contact on WhatsApp</a>
 </div>
 </section>
 
-<section id="menu">
-<h2 class="section-title">Single Cake Menu</h2>
-
-<div class="menu-grid">
-
-<!-- CAKE ITEMS -->
-
-<script>
-const phone = "919847472277"; // replace with real WhatsApp number
-const cakes = [
-["Red Velvet","1199"],
-["Choco Red","1199"],
-["Nutty Bubble","1199"],
-["Choco Nut","1199"],
-["White Forest","849"],
-["Vancho","1199"],
-["Milky Nut","1199"],
-["Black Forest","849"],
-["Vanilla Delight","999"],
-["White Malt","1199"],
-["Choco Truffle","1199"],
-["Mango Red","1199"],
-["Butter Scotch","1099"],
-["Red Bee","1199"],
-["Passion Fruit","999"],
-["Blueberry","999"],
-["Medium Chocolate","1099"],
-["Choco Mango","1199"],
-["Classic Oreo","1199"],
-["Mango Gateaux","999"]
-];
-
-cakes.forEach(cake=>{
-document.write(`
-<div class="cake-card">
-<img src="https://source.unsplash.com/400x300/?cake" alt="${cake[0]}">
-<h3>${cake[0]}</h3>
-<div class="price">₹ ${cake[1]}</div>
-<a href="https://wa.me/${phone}?text=Hello%20Cake%20Factory,%20I%20would%20like%20to%20order%20the%20${cake[0].replace(" ","%20")}%20cake." target="_blank">
-<button class="order-btn">Order on WhatsApp</button>
-</a>
-</div>
-`);
-});
-</script>
-
-</div>
+<section class="about" id="about">
+<h2>About Me</h2>
+<p>
+At cakefactory, we create handcrafted premium cakes for every celebration.
+Every cake is freshly baked using quality ingredients to make your special moments sweeter.
+</p>
 </section>
 
-<section class="cta">
-<h2>Order Your Perfect Cake Today 🎂</h2>
-<p>Buy 1 Get 1 Free | Single Cake 45% OFF</p>
-</section>
+<div class="info">
+⭐ 4.4 Rating (272 Reviews)<br>
+📍 Kinnar Bus Stop, Cheroor, Thrissur<br>
+📞 WhatsApp: 98474 7277<br>
+🕙 Open Daily – Closes 10 PM
+</div>
 
-<section id="contact">
+<h2 class="section-title" id="menu">Menu</h2>
+<div class="menu" id="menuContainer"></div>
+
 <h2 class="section-title">Visit Us</h2>
-<p>Kinnar Bus Stop, Cheroor, Thrissur, Kerala 680008</p>
-<p>Open Daily — Closes at 10 PM</p>
-</section>
+<div class="map">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3922.399430973275!2d76.22426707460924!3d10.547883389587383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7ef024ff3fce3%3A0x47324cf062cdd3cb!2sNethaji%20cake%20delivery%20thrissur!5e0!3m2!1sen!2sin!4v1772546638533!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
+<a href="https://wa.me/919847472277" class="float">💬</a>
 
 <footer>
-© 2026 Cake Factory | Thrissur
+© 2026 cakefactory | Thrissur
 </footer>
+
+<script>
+const phone="919847472277";
+
+const cakes=[
+["Red Velvet","1199","red-velvet.jpg"],
+["Choco Red","1199","choco-red.jpg"],
+["Nutty Bubble","1199","nutty-bubble.jpg"],
+["Choco Nut","1199","choco-nut.jpg"],
+["White Forest","849","white-forest.jpg"],
+["Vancho","1199","vancho.jpg"],
+["Milky Nut","1199","milky-nut.jpg"],
+["Black Forest","849","black-forest.jpg"],
+["Vanilla Delight","999","vanilla-delight.jpg"],
+["White Malt","1199","white-malt.jpg"],
+["Choco Truffle","1199","choco-truffle.jpg"],
+["Mango Red","1199","mango-red.jpg"],
+["Butter Scotch","1099","butter-scotch.jpg"],
+["Red Bee","1199","red-bee.jpg"],
+["Passion Fruit","999","passion-fruit.jpg"],
+["Blueberry","999","blueberry.jpg"],
+["Medium Chocolate","1099","medium-chocolate.jpg"],
+["Choco Mango","1199","choco-mango.jpg"],
+["Classic Oreo","1199","classic-oreo.jpg"],
+["Mango Gateaux","999","mango-gateaux.jpg"]
+];
+
+const container=document.getElementById("menuContainer");
+
+cakes.forEach(cake=>{
+container.innerHTML+=`
+<div class="card">
+<img src="images/${cake[2]}" alt="${cake[0]}">
+<div class="card-body">
+<h3>${cake[0]}</h3>
+<div class="price">₹ ${cake[1]}</div>
+<a href="https://wa.me/${phone}?text=Hello%20cakefactory,%20I%20would%20like%20to%20order%20${cake[0].replace(/ /g,'%20')}%20cake." target="_blank">
+<button class="order">Order</button>
+</a>
+</div>
+</div>
+`;
+});
+
+const cards=document.querySelectorAll('.card');
+window.addEventListener('scroll',()=>{
+cards.forEach(card=>{
+if(card.getBoundingClientRect().top < window.innerHeight-50){
+card.classList.add('show');
+}
+});
+});
+</script>
 
 </body>
 </html>
